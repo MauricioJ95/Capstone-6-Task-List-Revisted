@@ -1,22 +1,29 @@
 ﻿
 <h1>Tasks</h1>
-<table border="1" class="table">
-    <tr>
-        <th>Task    </th>
-        <th>Due Date    </th>
-        <th>Completion</th>
-    </tr>
-    @{
-        if (ViewBag.ListOfTasks != null)
-        {
-            foreach (var x in ViewBag.ListOfTasks)
+<form action="/Home/AddTask" method="post">
+    <input name="Name" type="text" placeholder="Name" />
+    <input name="Description" type="text" placeholder="Desc." />
+    <input name="Quantity" type="number" placeholder="Quantity" />
+    <input name="Price" type="text" pattern="^\d+.\d\d$" placeholder="0.00" />
+    <input type="submit" value="Submit" />
+    </form>
+    <table border="1" class="table">
+        <tr>
+            <th>Task    </th>
+            <th>Due Date    </th>
+            <th>Completion</th>
+        </tr>
+        @{
+            if (ViewBag.ListOfTasks != null)
             {
-                <tr>
-                    <td>@x.Description</td>
-                    <td>@x.DueDate</td>
-                    <td>@x.Completion</td>
-                </tr>
+                foreach (var x in ViewBag.ListOfTasks)
+                {
+                    <tr>
+                        <td>@x.Description</td>
+                        <td>@x.DueDate</td>
+                        <td>@x.Completion</td>
+                    </tr>
+                }
             }
         }
-    }
-</table>
+    </table>
