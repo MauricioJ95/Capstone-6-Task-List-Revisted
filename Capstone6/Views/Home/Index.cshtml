@@ -1,20 +1,22 @@
 ﻿
 <h1>Tasks</h1>
-<table>
+<table border="1" class="table">
     <tr>
         <th>Task    </th>
         <th>Due Date    </th>
         <th>Completion</th>
     </tr>
-</table>
-@{ 
-    if(ViewBag.ListOfTasks != null)
-    {
-        foreach(var x in ViewBag.ListOfTasks)
+    @{
+        if (ViewBag.ListOfTasks != null)
         {
-            <p>@x.Description</p>
-            <p>@x.DueDate</p>
-            <p>@x.Completion</p>
+            foreach (var x in ViewBag.ListOfTasks)
+            {
+                <tr>
+                    <td>@x.Description</td>
+                    <td>@x.DueDate</td>
+                    <td>@x.Completion</td>
+                </tr>
+            }
         }
     }
-}
+</table>
