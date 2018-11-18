@@ -15,7 +15,7 @@
           <Property Name="Completion" Type="bit" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="User">
+        <EntityType Name="Users">
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
@@ -25,7 +25,7 @@
         </EntityType>
         <EntityContainer Name="TaskListModelStoreContainer">
           <EntitySet Name="Taskss" EntityType="Self.Taskss" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -50,7 +50,7 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="TaskListEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TaskListEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Tasksses" EntityType="Self.Taskss" />
           <EntitySet Name="Users" EntityType="Self.User" />
         </EntityContainer>
@@ -59,7 +59,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TaskListModelStoreContainer" CdmEntityContainer="TaskListEntities2">
+        <EntityContainerMapping StorageEntityContainer="TaskListModelStoreContainer" CdmEntityContainer="TaskListEntities3">
           <EntitySetMapping Name="Tasksses">
             <EntityTypeMapping TypeName="TaskListModel.Taskss">
               <MappingFragment StoreEntitySet="Taskss">
@@ -73,7 +73,7 @@
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="TaskListModel.User">
-              <MappingFragment StoreEntitySet="User">
+              <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />

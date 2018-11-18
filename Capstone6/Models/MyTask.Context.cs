@@ -13,10 +13,10 @@ namespace Capstone6.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TaskListEntities2 : DbContext
+    public partial class TaskListEntities3 : DbContext
     {
-        public TaskListEntities2()
-            : base("name=TaskListEntities2")
+        public TaskListEntities3()
+            : base("name=TaskListEntities3")
         {
         }
     
