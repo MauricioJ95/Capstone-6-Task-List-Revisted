@@ -14,10 +14,27 @@ namespace Capstone6.Models
     
     public partial class Taskss
     {
+        public Taskss(int taskID, int? userID, string dueDate, bool completion, string taskDescription)
+        {
+            TaskID = taskID;
+            UserID = userID;
+            DueDate = dueDate;
+            Completion = completion;
+            TaskDescription = taskDescription;
+        }
+        public Taskss()
+        {
+            TaskID = 0;
+            UserID = 0;
+            DueDate = "";
+            Completion = false;
+            TaskDescription = "";
+        }
+
         public int TaskID { get; set; }
-        public int UserID { get; set; }
+        public Nullable<int> UserID { get; set; }
         public string DueDate { get; set; }
         public bool Completion { get; set; }
-        public string Description { get; set; }
+        public string TaskDescription { get; set; }
     }
 }

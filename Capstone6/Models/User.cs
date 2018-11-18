@@ -14,6 +14,19 @@ namespace Capstone6.Models
     
     public partial class User
     {
+        public User(int userID, string email, string password)
+        {
+            UserID = userID;
+            Email = email;
+            Password = password;
+        }
+        public User()
+        {
+            UserID = 0;
+            Email = "";
+            Password = "";
+        }
+
         public int UserID { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

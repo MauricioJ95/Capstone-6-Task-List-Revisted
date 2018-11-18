@@ -9,7 +9,7 @@ namespace Capstone6.Controllers
 {
     public class HomeController : Controller
     {
-        public TaskListEntities2 ORM = new TaskListEntities2();
+        public TaskListEntities4 ORM = new TaskListEntities4();
         
         public ActionResult Index()
         {

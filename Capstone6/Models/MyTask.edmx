@@ -10,10 +10,10 @@
             <PropertyRef Name="TaskID" />
           </Key>
           <Property Name="TaskID" Type="int" Nullable="false" />
-          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" />
           <Property Name="DueDate" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Completion" Type="bit" Nullable="false" />
-          <Property Name="Description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TaskDescription" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -37,10 +37,10 @@
             <PropertyRef Name="TaskID" />
           </Key>
           <Property Name="TaskID" Type="Int32" Nullable="false" />
-          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
           <Property Name="DueDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Completion" Type="Boolean" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TaskDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -50,7 +50,7 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="TaskListEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TaskListEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Tasksses" EntityType="Self.Taskss" />
           <EntitySet Name="Users" EntityType="Self.User" />
         </EntityContainer>
@@ -59,7 +59,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TaskListModelStoreContainer" CdmEntityContainer="TaskListEntities3">
+        <EntityContainerMapping StorageEntityContainer="TaskListModelStoreContainer" CdmEntityContainer="TaskListEntities4">
           <EntitySetMapping Name="Tasksses">
             <EntityTypeMapping TypeName="TaskListModel.Taskss">
               <MappingFragment StoreEntitySet="Taskss">
@@ -67,7 +67,7 @@
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="DueDate" ColumnName="DueDate" />
                 <ScalarProperty Name="Completion" ColumnName="Completion" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TaskDescription" ColumnName="TaskDescription" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\tmcar\OneDrive\Desktop\Capstone6\Capstone-6-Task-List-Revisted\Capstone6\Models\MyTask.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\git\Capstone6\Capstone6\Models\MyTask.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
