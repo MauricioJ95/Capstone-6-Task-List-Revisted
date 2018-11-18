@@ -36,11 +36,11 @@ namespace Capstone6.Controllers
             {
                 ORM.Tasksses.Add(task);
                 ORM.SaveChanges();
-                return View("AddTask");
+                return View();
             }
             else
             {
-
+                return View();
             }
         }
     }
