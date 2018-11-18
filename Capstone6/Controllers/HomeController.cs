@@ -9,7 +9,7 @@ namespace Capstone6.Controllers
 {
     public class HomeController : Controller
     {
-        public TaskListEntities3 ORM = new TaskListEntities3();
+        public TaskListEntities5 ORM = new TaskListEntities5();
         
         public ActionResult Index()
         {
@@ -21,7 +21,7 @@ namespace Capstone6.Controllers
         {
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            return View("AddingTasks");
         }
 
         public ActionResult Contact()
@@ -36,12 +36,16 @@ namespace Capstone6.Controllers
             {
                 ORM.Tasksses.Add(task);
                 ORM.SaveChanges();
-                return View();
+                return View("AddingTask");
             }
             else
             {
-                return View();
+                return View("AddingTask");
             }
+        }
+        public ActionResult AddingTask()
+        {
+            return View();
         }
     }
 }

@@ -50,7 +50,7 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="TaskListEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TaskListEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Tasksses" EntityType="Self.Taskss" />
           <EntitySet Name="Users" EntityType="Self.User" />
         </EntityContainer>
@@ -59,7 +59,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TaskListModelStoreContainer" CdmEntityContainer="TaskListEntities3">
+        <EntityContainerMapping StorageEntityContainer="TaskListModelStoreContainer" CdmEntityContainer="TaskListEntities5">
           <EntitySetMapping Name="Tasksses">
             <EntityTypeMapping TypeName="TaskListModel.Taskss">
               <MappingFragment StoreEntitySet="Taskss">
