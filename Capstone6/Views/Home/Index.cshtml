@@ -1,14 +1,12 @@
 ﻿
 <h1>Tasks</h1>
+<p>@Html.ActionLink("AddingTask","AddingTask")</p>
 
-
-<h1>Tasks</h1>
 <table border="1" class="table">
     <tr>
         <th>Task    </th>
         <th>Due Date    </th>
         <th>Completion</th>
-        <th>Edit</th>
         <th>Delete</th>
     </tr>
     @{
@@ -16,15 +14,14 @@
         {
             foreach (var x in ViewBag.ListOfTasks)
             {
-                <tr>
-                    <td>@x.Description</td>
-                    <td>@x.DueDate</td>
-                    <td>@x.Completion</td>
-                    <td><a href="/Home/TaskDetails?taskID=@x.TaskID">Edit</a></td>
-                    <td><a href="/Home/DeleteItem?taskID=@x.TaskID" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a></td>
-                </tr>
+    <tr>
+        <td>@x.Description</td>
+        <td>@x.DueDate</td>
+        <td>@x.Completion</td>
+        <td><a href="/Home/DeleteItem?taskID=@x.TaskID" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a></td>
+        <td><a href="/Home/ToggleStatus?taskID=@x.TaskID" onclick="return">Complete</a></td>
+    </tr>
             }
         }
     }
 </table>
-    </table>

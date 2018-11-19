@@ -13,10 +13,10 @@ namespace Capstone6.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TaskListEntities5 : DbContext
+    public partial class TaskListEntities7 : DbContext
     {
-        public TaskListEntities5()
-            : base("name=TaskListEntities5")
+        public TaskListEntities7()
+            : base("name=TaskListEntities7")
         {
         }
     
@@ -25,7 +25,7 @@ namespace Capstone6.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Taskss> Tasksses { get; set; }
+        public virtual DbSet<Tasksss> Taskssses { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

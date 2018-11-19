@@ -1,9 +1,19 @@
 ﻿
-
+@{ 
+    int TaskID;
+    if(ViewBag.ListOfTasks == null)
+    {
+        TaskID = 0;
+    }
+    else
+    {
+        TaskID = ViewBag.ListOfTasks.Count;
+    }
+}
 
 <h2>Add Task</h2>
 <form action="/Home/AddTask" method="post">
-    <input name="TaskID" type="hidden" value="@ViewBag.ListOfTasks.Count"/>
+    <input name="TaskID" type="hidden" value="@TaskID"/>
     <input name="UserID" type="hidden" value="0"/>
     <input name="Description" type="text" placeholder="The Task" />
     <input name="DueDate" type="text" placeholder="xx/xx/xxxx" pattern="\d\d\/\d\d\/\d\d\d\d" />

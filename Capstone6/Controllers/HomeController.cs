@@ -9,11 +9,15 @@ namespace Capstone6.Controllers
 {
     public class HomeController : Controller
     {
-        public TaskListEntities5 ORM = new TaskListEntities5();
+        public TaskListEntities7 ORM = new TaskListEntities7();
 
+        public ActionResult AddUser()
+        {
+            return View("Index");
+        }
         public ActionResult Index()
         {
-            ViewBag.ListOfTasks = ORM.Tasksses.ToList<Taskss>();
+            ViewBag.ListOfTasks = ORM.Taskssses.ToList<Tasksss>();
             return View();
         }
 
@@ -30,11 +34,11 @@ namespace Capstone6.Controllers
 
             return View();
         }
-        public ActionResult AddTask(Taskss task)
+        public ActionResult AddTask(Tasksss task)
         {
             if (ModelState.IsValid)
             {
-                ORM.Tasksses.Add(task);
+                ORM.Taskssses.Add(task);
                 ORM.SaveChanges();
                 return View("AddingTask");
             }
@@ -45,41 +49,53 @@ namespace Capstone6.Controllers
         }
         public ActionResult AddingTask()
         {
+            ViewBag.ListOfTasks = ORM.Taskssses.ToList<Tasksss>();
             return View();
         }
-        public ActionResult TaskDetails(int taskID)
+        public ActionResult EditTask(int taskID, Tasksss NewTask)
         {
-            Taskss found = ORM.Tasksses.Find(taskID);
+            Tasksss found = ORM.Taskssses.Find(taskID);
+            ViewBag.Task = found;
 
             if (found != null)
             {
-                ViewBag.Task = found;
-                return View();
+                
+                Tasksss oldTask = ORM.Taskssses.Find(NewTask.TaskID);
+                oldTask.Description = NewTask.Description;
+                oldTask.DueDate = NewTask.DueDate;
+                oldTask.Completion = NewTask.Completion;
+
+                ORM.Entry(oldTask).State = System.Data.Entity.EntityState.Modified;
+                ORM.SaveChanges();
+                return View("Index");
             }
-            return View();
+            return View("Index");
         }
 
-        public ActionResult SaveItemChanges(Taskss NewTask)
+        public ActionResult ToggleStatus(int taskID)
         {
-
-            Taskss oldTask = ORM.Tasksses.Find(NewTask.TaskID);
-            oldTask.Description = NewTask.Description;
-            oldTask.DueDate = NewTask.DueDate;
-            oldTask.Completion = NewTask.Completion;
-
-            ORM.Entry(oldTask).State = System.Data.Entity.EntityState.Modified;
+            Tasksss ItemToToggle = ORM.Taskssses.Find(taskID);
+            if(ItemToToggle.Completion == true)
+            {
+                ItemToToggle.Completion = false;
+            }
+            else
+            {
+                ItemToToggle.Completion = true;
+            }
+            ORM.Entry(ItemToToggle).State = System.Data.Entity.EntityState.Modified;
             ORM.SaveChanges();
-
             return RedirectToAction("Index");
+
         }
         public ActionResult DeleteItem(int taskID)
 
         {
 
-            Taskss ItemToDelete = ORM.Tasksses.Find(taskID);
+            Tasksss ItemToDelete = ORM.Taskssses.Find(taskID);
 
-            ORM.Tasksses.Remove(ItemToDelete);
-
+            ORM.Taskssses.Remove(ItemToDelete);
+            
             ORM.SaveChanges();
 
             return RedirectToAction("Index");

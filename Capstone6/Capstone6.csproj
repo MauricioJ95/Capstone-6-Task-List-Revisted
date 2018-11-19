@@ -220,7 +220,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyTask.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Taskss.cs">
+    <Compile Include="Models\Tasksss.cs">
       <DependentUpon>MyTask.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">

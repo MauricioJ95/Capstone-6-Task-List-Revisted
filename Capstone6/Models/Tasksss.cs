@@ -12,12 +12,12 @@ namespace Capstone6.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Taskss
+    public partial class Tasksss
     {
         public int TaskID { get; set; }
-        public int UserID { get; set; }
+        public Nullable<int> UserID { get; set; }
+        public string Description { get; set; }
         public string DueDate { get; set; }
         public bool Completion { get; set; }
-        public string Description { get; set; }
     }
 }
